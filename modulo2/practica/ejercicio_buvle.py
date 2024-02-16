@@ -1,3 +1,38 @@
+def agregar_alumno(lista_alumnos, nombre, edad, correo, cursos):
+  alumno = {
+    "nombre": nombre,
+    "edad": edad,
+    "correo": correo,
+    "cursos": cursos
+  }
+  lista_alumnos.append(alumno)
+lista_alumnos = []
+
+agregar_alumno(lista_alumnos, "Juan Pérez", 20, "juan.perez@correo.com", [
+  {
+    "nombre_curso": "Python basico",
+    "notas": [9, 10, 14]
+  },
+  {
+    "nombre_curso": "Excel intermedio",
+    "notas": [16, 12, 10]
+  }
+])
+
+agregar_alumno(lista_alumnos, "Ana García", 21, "ana.garcia@correo.com", [
+  {
+    "nombre_curso": "Python bsaico",
+    "notas": [18, 12, 14]
+  },
+  {
+    "nombre_curso": "Excel intermedio",
+    "notas": [17, 20, 10]
+  }
+])
+def calcular_promedio(notas):
+  suma_notas = sum(notas)
+  promedio = suma_notas / len(notas)
+  return promedio
 while True:
     print("Ingrese una opcion")
     opciones="""
@@ -47,36 +82,48 @@ while True:
             else:
                 print("ingrese un valor correcto")
     elif opc==3:
-        personas = []
-        persona1 = {
-            "nombre": "Juan",
-            "edad": 25,
-            "correo": "juan@example.com",
-            "cursos": [
-                {"curso": "Excel basico", "notas": [14,17,16]}
-            ]
-        }
-
-        persona2 = {
-            "nombre": "María",
-            "edad": 30,
-            "correo": "maria@example.com",
-            "cursos": [
-                {"curso": "Pyhton basico", "notas": [15,15,17]},
-            ]
-        }
-
-        personas.append(persona1)
-        personas.append(persona2)
-        print(personas)
+        print(lista_alumnos)
     elif opc==4:
-        print("q")
+        def mostrar_alumnos_aprobados(lista_alumnos):
+            print("Alumnos aprobados:")
+            for alumno in lista_alumnos:
+                promedio_total = 0
+                numero_cursos = 0
+                for curso in alumno["cursos"]:
+                    promedio_curso = calcular_promedio(curso["notas"])
+                    promedio_total += promedio_curso
+                    numero_cursos += 1
+                    promedio_final = promedio_total / numero_cursos
+                if promedio_final >= 13:
+                    print(f"- {alumno['nombre']}: {promedio_final:.2f}")
+
+        mostrar_alumnos_aprobados(lista_alumnos)
     elif opc==5:
-        print("x")
+        def mostrar_alumnos_desaprobados(lista_alumnos):
+            print("Alumnos desprobados:")
+            for alumno in lista_alumnos:
+                promedio_total = 0
+                numero_cursos = 0
+                for curso in alumno["cursos"]:
+                    promedio_curso = calcular_promedio(curso["notas"])
+                    promedio_total += promedio_curso
+                    numero_cursos += 1
+                    promedio_final = promedio_total / numero_cursos
+                if promedio_final <= 13:
+                    print(f"- {alumno['nombre']}: {promedio_final:.2f}")
+
+        mostrar_alumnos_desaprobados(lista_alumnos)
     elif opc==6:
         print("y")
     elif opc==7:
-        print("e")
+        def generar_lista_multiplos():
+            lista_multiplos = []
+            for num in range(0, 10**10, 10000):#step=10000 para que se obtenga resultado de manera inmediata
+                if num % 2 == 0 and num % 5 == 0 and num % 7 == 0:
+                    lista_multiplos.append(num)
+            return lista_multiplos
+        lista_resultado = generar_lista_multiplos()
+        print("Tamaño de la lista de múltiplos:", len(lista_resultado))
     elif opc==8:
         num_1=int(input("Ingrese un numero: "))
         num_2=int(input("Ingrese un numero: "))
