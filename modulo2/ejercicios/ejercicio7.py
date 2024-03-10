@@ -25,3 +25,4 @@ def calcular_poligono(poligono:str):
 print(calcular_poligono('TRIANGULO'))
 
 
+
