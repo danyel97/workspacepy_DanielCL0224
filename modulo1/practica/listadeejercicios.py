@@ -1,4 +1,4 @@
-# 1.Realizar un programa que pida tus datos personales y mostrar en pantalla los datos solisitados
+# 1.Realizar un programa que pida tus datos personales y mostrar en pantalla los datos solicitados
 # 2.Realizar un programa que calcule el area y el perimetro de un poligono a tu eleccion( triangulo , cuadrado , circulo)
 # 3.Realizar un programa que nos pida el ingreso total de un hogar y vaya pidiendo posibles gastos . Como resultado debe decir  todos los egresos y el ahorro.
 # 4.Realizar un programa que filtre si eres apto para registrar un negocio ,condiciones: mayor de edad , tener ruc y tener un nombre comercial ,los inputs son si y /o no . la salida debe ser si esta apto o no para abrir un comercio.
